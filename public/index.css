@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+  --blue: hsl(248, 32%, 49%);
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish-blue: hsl(246, 25%, 77%);
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+body {
+  background: var(--red) url("images/bg-intro-mobile.png");
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 35% 57% 8%;
+  grid-template-columns: 100%;
+}
+
+#content-section {
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  margin: auto;
+  padding: 4rem 2rem 0rem 2rem;
+  text-align: center;
+}
+h1 {
+  font-size: 1.75rem;
+}
+.copy {
+  line-height: 1.75rem;
+}
+
+#sign-up-section {
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  width: 85%;
+  margin: auto;
+  margin-top: 1.25rem;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+}
+.cta-box {
+  margin: 0.5rem 0 2rem 0;
+  background: var(--blue);
+  text-align: center;
+  padding: 1.2rem 4rem;
+  line-height: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 7px 0px -1px rgba(173, 106, 106, 1);
+}
+
+.form {
+  box-shadow: 0px 7px 0px -1px rgba(173, 106, 106, 1);
+  background: white;
+  display: grid;
+  grid-template-columns: 100%
+  grid-template-rows: 20% 20% 20% 20% 20%;;
+  padding: 1.5rem;
+  justify-items: center;
+  border-radius: 0.5rem;
+}
+.input-box {
+  border-width: 1px;
+  border-color: var(--grayish-blue);
+  border-style: solid;
+  border-radius: 0.25rem;
+  margin: 0;
+  width: 85%;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100%;
+  padding: 1.1rem;
+}
+.input-box:active {
+  border-color: var(--dark-blue);
+}
+input {
+  font-size: 13px;
+  font-weight: 500;
+  border-style: none;
+  background-color: none;
+  outline: none;
+}
+p {
+  margin: 0.5rem;
+}
+.error-icon {
+  width: 1.2rem;
+}
+.claim-button {
+  background: var(--green);
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+  padding: 1.1rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  box-shadow: inset 0px -8px 2px -5px rgba(39, 140, 96, 0.54);
+}
+.ts-and-cs {
+  color: var(--grayish-blue);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+.red-text {
+  color: var(--red);
+}
+footer {
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  text-align: center;
+  font-size: 12px;
+  padding: 0.75rem 5rem;
+  line-height: 1.5rem;
+}
+a {
+  color: white;
+}
+
+@media (min-width: 1000px) {
+body {
+  background-image: url("images/bg-intro-desktop.png");
+  background-repeat: no-repeat;
+  grid-template-rows: 90% 10%;
+  grid-template-columns: 50% 50%;
+}
+
+#content-section {
+  grid-column-start: 1;
+  padding: 8rem 5rem 5rem 8rem;
+  text-align: left;
+}
+h1 {
+  font-size: 3rem;
+}
+.copy {
+  line-height: 2rem;
+}
+
+#sign-up-section {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  width: 75%;
+  margin-top: 2.5rem;
+  margin-left: 0;
+}
+.cta-box {
+  margin: 5rem 0 1rem 0;
+  padding: 1.2rem;
+}
+.form {
+  padding: 2rem;
+}
+.input-box {
+  width: 90%;
+  padding: 1.5rem;
+}
+p {
+  margin: 0.5rem;
+}
+.claim-button {
+  padding: 1.25rem;
+}
+
+footer {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+}
+
+}
