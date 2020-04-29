@@ -139,7 +139,7 @@ a {
   color: white;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1025px) {
 body {
   background-image: url("images/bg-intro-desktop.png");
   background-repeat: no-repeat;
