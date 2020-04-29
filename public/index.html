@@ -29,61 +29,68 @@
     <div class="cta-box">
       Try it free 7 days then $20/mo. thereafter
     </div>
-    <div class="form">
-      <div class="input-box"><input aria-label="first-name" id="first-name" type="text" placeholder="First Name" />
-        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon" hidden />
-      </div><p id="message"></p>
-      <div class="input-box"><input aria-label="last-name" id="last-name" type="text" placeholder="Last Name" />
-        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon" hidden />
-      </div><p id="message"></p>
-      <div class="input-box"><input aria-label="email" id="email" type="email" placeholder="Email" />
-        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon" hidden />
-      </div><p id="emailMessage"></p>
-      <div class="input-box"><input aria-label="password" id="password" type="paswword" placeholder="Password" />
-        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon" hidden />
-      </div><p id="message"></p>
+    <form id="myForm" class="form">
+      <div class="input-box" id="input-box-first-name">
+        <input aria-label="first-name" id="first-name" type="text" placeholder="First Name" />
+        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon-first-name" hidden />
+      </div>
+      <p id="message-first-name" class="message"></p>
+
+      <div class="input-box" id="input-box-last-name">
+        <input aria-label="last-name" id="last-name" type="text" placeholder="Last Name" />
+        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon-last-name" hidden />
+      </div>
+      <p id="message-last-name" class="message"></p>
+
+      <div class="input-box" id="input-box-email">
+        <input aria-label="email" id="email" type="email" placeholder="Email" />
+        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon-email" hidden />
+      </div>
+      <p id="message-email" class="message"></p>
+
+      <div class="input-box" id="input-box-password">
+        <input aria-label="password" id="password" type="password" placeholder="Password" />
+        <img alt="error-icon" src="./images/icon-error.svg" class="error-icon" id="error-icon-password" hidden />
+      </div>
+      <p id="message-password" class="message"></p>
+
       <button class="claim-button" type="button" onclick="validate()">
         Claim your free trial
       </button>
-      <script>
-        function validate() {
-          const emailMessage = document.getElementById("emailMessage");
-          const email = document.getElementById("email").value;
-          const errorIcon = document.getElementById("error-icon");
-          if (validator.isEmail(email)) {
-            emailMessage.innerHTML = "";
-            errorIcon.hidden = true;
-            document
-              .getElementById("email")
-              .classList.remove("error-outline");
-          } else {
-            emailMessage.innerHTML = `Please provide a valid email`;
-            errorIcon.hidden = false;
-            document
-              .getElementById("email")
-              .classList.add("error-outline");
-          }
-
-        }
-          // const allInputs = document.getElementsByTagName("input")
-          // const message = document.getElementById("message")
-          // for each (input in allInputs) {
-          //   if (input.value === "") {
-          //     message.innerHTML = `${input.id} cannot be empty`;
-          //     errorIcon.hidden = false;
-          //     input.id.classList.add("error-outline");
-          //   } else {
-          //     emailMessage.innerHTML = "";
-          //     errorIcon.hidden = true;
-          //     input.id.classList.remove("error-outline");
-          //   }
-          // })
-      </script>
-
       <p class="ts-and-cs">
         By clicking the button, you are agreeing to our <span class="red-text">Terms and Services</span>
       </p>
-    </div>
+      <script>
+        function validate() {
+          const inputs = document.querySelectorAll("input");
+
+          for (let i = 0; i < inputs.length; i++) {
+            const input = inputs[i];
+            const message = document.getElementById(`message-${input.id}`);
+            const errorIcon = document.getElementById(`error-icon-${input.id}`);
+            const inputBox = document.getElementById(`input-box-${input.id}`);
+            if (input.value === "") {
+              message.innerHTML = `${input.placeholder} cannot be empty`;
+              errorIcon.hidden = false;
+              inputBox.classList.add("error-outline");
+            } else {
+              message.innerHTML = "";
+              errorIcon.hidden = true;
+              inputBox.classList.remove("error-outline");
+            }
+          }
+          const email = document.getElementById("email").value;
+          const emailMessage = document.getElementById("message-email");
+          const errorIcon = document.getElementById("error-icon-email");
+          if (validator.isEmail(email)) {
+            message.innerHTML = "";
+          } else {
+            emailMessage.innerHTML = "Please provide a valid email";
+            errorIcon.hidden = false;
+          }
+        }
+      </script>
+    </form>
   </section>
 
   <footer>
